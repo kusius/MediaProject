@@ -32,5 +32,19 @@ public class Pair {
         return (other_.x == this.x) && (other_.y == this.y);
     }
 
+    public static Pair add(Pair a, Pair b)
+    {
+        //dont check for NPE, allow it so that we can see errors
+        Pair result = new Pair(a.x + b.x, a.y + b.y);
+        return result;
+    }
+
+    public boolean isAdjacent (Pair other)
+    {
+        int diffx = Math.abs(this.x - other.x);
+        int diffy = Math.abs(this.y - other.y);
+        return  (diffx <= 1) && (diffy <= 1) ;
+    }
+
 
 }
