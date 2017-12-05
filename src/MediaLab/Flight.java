@@ -143,20 +143,21 @@ public class Flight {
 
     private void update()
     {
-        int pixelsToMove ;
-
+        int pixelsToMove = 0 ;
+//        System.out.println("Total pixels " + totalPixels);
         if( Position.x % BLOCK_SIZE == 0 && Position.y % BLOCK_SIZE == 0)
         {
-            System.out.println("New block");
+//            System.out.println("New block");
             //System.out.println("Current Position: " + Position.x / BLOCK_SIZE + " " + Position.y / BLOCK_SIZE  );
             //change to next move if there is one
             if(currentPos + 1 < moves.size())
             {
                 currentPos += 1;
 
-                totalPixels = speed[currentPos] + pixelRemainder;
-                pixelsToMove = (int) totalPixels;
-                pixelRemainder = totalPixels - (int) totalPixels;
+
+                pixelsToMove = (int) (speed[currentPos] + pixelRemainder);
+                totalPixels  = pixelsToMove;
+                pixelRemainder = speed[currentPos] + pixelRemainder - pixelsToMove;
 
 
 
@@ -177,9 +178,10 @@ public class Flight {
                 pixelRemainder = pixelRemainder + speed[currentPos] - pixelsToMove;
 
                 totalPixels += pixelsToMove;
-
+//                System.out.println("Pixels to Move " + pixelsToMove );
                 if ( totalPixels <= BLOCK_SIZE )
                 {
+
                     Pair d = new Pair(moves.get(currentPos).x * pixelsToMove, moves.get(currentPos).y * pixelsToMove);
                     Position = Pair.add(Position, d);
                 }
@@ -195,8 +197,8 @@ public class Flight {
 
 
                         //snap to block
-                        pixelsToMove = (int)(totalPixels - BLOCK_SIZE);
-                        pixelRemainder = totalPixels - BLOCK_SIZE - pixelsToMove;
+                        pixelsToMove = pixelsToMove - (int)(totalPixels - BLOCK_SIZE);
+                        pixelRemainder = totalPixels - BLOCK_SIZE;
 
 
 
@@ -208,14 +210,15 @@ public class Flight {
                     }
                     else
                     {//change square and continue moving
+
                         if(currentPos + 1 < moves.size())
                         {
                             currentPos += 1;
 
-                            totalPixels = speed[currentPos] + pixelRemainder;
-                            pixelsToMove = (int) totalPixels;
-                            pixelRemainder = totalPixels - (int) totalPixels;
+                            pixelsToMove   = (int) (pixelRemainder + speed[currentPos]);
+                            pixelRemainder = pixelRemainder + speed[currentPos] - pixelsToMove;
 
+                            totalPixels += pixelsToMove;
 
 
                             Pair d = new Pair(moves.get(currentPos).x * pixelsToMove, moves.get(currentPos).y * pixelsToMove);
@@ -229,6 +232,8 @@ public class Flight {
                 }
             }
         }
+
+//        System.out.println("Moved By " + pixelsToMove);
 
 
 

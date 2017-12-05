@@ -68,8 +68,8 @@ public class DrawPanel extends JPanel implements ActionListener {
 
     private void drawFlights(Graphics2D g2d)
     {
-//        Flight f = parent.flights.get(0);
-        for(Flight f : parent.flights)
+        Flight f = parent.flights.get(0);
+//        for(Flight f : parent.flights)
         {
             if (f != null) {
                 //System.out.println("Current index : " + f.getCurrentPos());

@@ -331,13 +331,31 @@ public class Program extends JFrame {
         //Strategy: Move horizontally then vertically. Dodge the airports sideways if
         //necessary.
 
+        Pair position = start;
+
+
             int D = Math.abs(end.x - start.x);
             int d = Integer.signum(end.x  - start.x ); //1, -1 or 0
 
+            //move horizontally
             for(int i = d; Math.abs(i) <= D; i+=d)
             {
+
+
                 Pair next = new Pair(d, 0 );
-                f.moves.add(next);
+                position = Pair.add(position, next);
+                System.out.println(position + " " + " arrival " + arrival.getPosition());
+                if (position .equals( arrival.getPosition()))
+                {
+                    System.out.println("Hello?");
+                    Pair juke = new Pair(d, -1);
+                    f.moves.add(juke);
+                    juke = new Pair(d, 1);
+                    f.moves.add(juke);
+                    i += d;
+                }
+                else
+                    f.moves.add(next);
             }
 
 
@@ -357,15 +375,6 @@ public class Program extends JFrame {
 
         //Calculate Speed and Altitude
         f.calculateSpeeds(SPEED_FACTOR, departure.getPosition(), arrival.getPosition());
-//
-//        f.speed = new float[f.moves.size()];
-//        float s = 0;
-//        for(int i = 0 ; i < f.moves.size(); i++)
-//        {
-//            s = f.getPlane().getDASpeed() * SPEED_FACTOR;
-////          f.speed[i] = 1;
-//            f.speed[i] = (f.getPlane().getDASpeed() * SPEED_FACTOR);
-//        }
 
 
         for(Pair p : f.moves)
