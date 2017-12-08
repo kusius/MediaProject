@@ -3,6 +3,8 @@ package MediaLab;
 import javax.swing.*;
 import javax.swing.text.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -14,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by Archer on 11/21/2017.
  */
-public class Program extends JFrame {
+public class Program extends JFrame implements ActionListener {
 
 
 
@@ -22,14 +24,19 @@ public class Program extends JFrame {
     public static final int WINDOW_HEIGHT = 550;
 
     public static final int BLOCK_SIZE = 16;
-    public  static final float TIME_FACTOR = 60 / 0.5f;
+    public static final float TIME_FACTOR = 60 / 5;//0.55f;
     public static final float SPEED_FACTOR = TIME_FACTOR * (0.8f *  DrawPanel.PERIOD * 0.001f) / ( 3600); //speed in pixels per frame
 
     //Data
     private int[][] worldData = new int [30][60];
     private int currentSimTime ;//in ms
+    private int collisions = 0;
+    private int landings   = 0;
+
+
     public Vector<Airport> airports = null;
-    public Vector<Flight> flights = null;
+    public Vector<Plane> planes     = null;
+    public Vector<Flight> flights   = null;
 
     //Each element of orientations describes the movement
     //that needs to be done in order to move from a start position
@@ -47,7 +54,7 @@ public class Program extends JFrame {
     //UI Components
     private DefaultStyledDocument document  = new DefaultStyledDocument();
     public JTextPane infoArea = new JTextPane(document);
-    private JScrollPane jsp   = new JScrollPane(infoArea);
+    private JScrollPane jsp  ;
     StyleContext context = new StyleContext();
     Style style = context.addStyle("style", null);
 
@@ -56,11 +63,34 @@ public class Program extends JFrame {
     public JLabel aircraftLabel = new JLabel();
     public JLabel collisionLabel = new JLabel();
     public JLabel landingsLabel = new JLabel();
-    public JPanel simulationPanel;
+    public DrawPanel simulationPanel;
+
+
+
     private JMenuBar menuBar;
     private JMenu gameMenu;
+    private JMenuItem start;
+    private JMenuItem stop;
+    private JMenuItem load;
+    private JMenuItem exit;
+
+
+    private JOptionPane optionPane;
+
     private JMenu simulationMenu;
+    private JMenuItem airportsM;
+    private JMenuItem aircraftsM;
+    private JMenuItem flightsM;
+
+
     private JMenu helpMenu;
+
+
+    //Info Dialogs
+    InfoDialog aiportDialog;
+    InfoDialog aircraftDialog;
+    InfoDialog flightsDialog;
+
 
 
 
@@ -74,17 +104,56 @@ public class Program extends JFrame {
 
         /*Data initialization
          */
-        loadMap("Resources/world_default.txt");
-        loadAirports("Resources/airports_default.txt");
         initUI();
-
-
-        loadFlights("Resources/flights_default.txt");
-
-        for(Flight f : flights)
-            calculateRoute(f);
-
     }
+
+    private void startSimulation(String mapid)
+    {
+        if (simulationPanel.isRunning() )
+        {
+            this.flights.removeAllElements();
+            this.airports.removeAllElements();
+            currentSimTime = 0;
+            simulationPanel.stopSim();
+        }
+
+
+        if(mapid == null || mapid.isEmpty())
+            mapid = "default";
+
+        loadMap("Resources/world_"+mapid+".txt");
+        loadAirports("Resources/airports_"+mapid+".txt");
+        loadFlights("Resources/flights_"+mapid+".txt");
+
+//        for(Flight f : flights)
+//            calculateRoute(f);
+
+
+        simulationPanel.startSim();
+    }
+
+    private void stopSimulation()
+    {
+        if(simulationPanel.isRunning())
+        {
+            //Clear data and stop the render
+            this.flights.removeAllElements();
+            this.airports.removeAllElements();
+            collisions = 0;
+            landings = 0;
+            currentSimTime = 0;
+            simulationPanel.stopSim();
+
+
+            //Cleanup info area and top labels
+            infoArea.setText("");
+            aircraftLabel.setText("Total Aircrafs: " + flights.size());
+            landingsLabel.setText("Landings: " + landings);
+            collisionLabel.setText("Collisions: " + collisions);
+            timeLabel.setText("Simulated Time: ");
+        }
+    }
+
 
     private void initUI()
     {
@@ -95,15 +164,60 @@ public class Program extends JFrame {
         setResizable(false);
 
 
-        //Menus
+        /*
+        MENUS
+         */
+
         menuBar = new JMenuBar();
+
+        /*GAME MENU*/
+
         gameMenu = new JMenu("Game");
+        start    = new JMenuItem("Start");
+        stop     = new JMenuItem("Stop");
+        load     = new JMenuItem("Load");
+        exit     = new JMenuItem("Exit");
+
+        start.addActionListener(this);
+        stop.addActionListener(this);
+        load.addActionListener(this);
+        exit.addActionListener(this);
+
+        gameMenu.add(start);
+        gameMenu.add(stop);
+        gameMenu.add(load);
+        gameMenu.add(exit);
+
+
+
         simulationMenu = new JMenu("Simulation");
+        airportsM      = new JMenuItem("Airports");
+        aircraftsM     = new JMenuItem("Aircrafts");
+        flightsM       = new JMenuItem("Flights");
+
+        airportsM.addActionListener(this);
+        aircraftsM.addActionListener(this);
+        flightsM.addActionListener(this);
+
+        simulationMenu.add(airportsM);
+        simulationMenu.add(aircraftsM);
+        simulationMenu.add(flightsM);
+
+
+
+
+
+
+
+
+
         helpMenu = new JMenu("Help");
         menuBar.add(gameMenu);
         menuBar.add(simulationMenu);
         menuBar.add(helpMenu);
 
+
+        optionPane = new JOptionPane();
 
 
         //A Center JPanel to draw our 2D simulation
@@ -112,15 +226,14 @@ public class Program extends JFrame {
         simulationPanel.setBackground(Color.BLACK);
 
         /*Info Area*/
-       // JPanel rightPanel = new JPanel();
-        infoArea.setEditable(false);
 
+       // JPanel noWrapPanel  = new JPanel(new BorderLayout()); //in order to force no wrap in JTextPane
+        //noWrapPanel.add(infoArea);
+
+        infoArea.setEditable(false);
         infoArea.setPreferredSize(new Dimension(180,900));
 
         jsp = new JScrollPane(infoArea);
-
-
-
 
         /*Top Panel Layout*/
         JPanel topPanel = new JPanel(new GridLayout(1, 4, 0, 0));
@@ -133,17 +246,17 @@ public class Program extends JFrame {
 
         aircraftLabel.setBackground(Color.LIGHT_GRAY);
         aircraftLabel.setOpaque(true);
-        aircraftLabel.setText("Total Aircrafts:");
+        aircraftLabel.setText("Total Aircrafts: 0"  );
 
 
         collisionLabel.setBackground(Color.LIGHT_GRAY);
         collisionLabel.setOpaque(true);
-        collisionLabel.setText("Collisions:");
+        collisionLabel.setText("Collisions: " + this.collisions);
 
 
         landingsLabel.setBackground(Color.LIGHT_GRAY);
         landingsLabel.setOpaque(true);
-        landingsLabel.setText("Landings:");
+        landingsLabel.setText("Landings: " + this.landings);
 
         //add components to topPanel
         topPanel.add(timeLabel);
@@ -202,6 +315,8 @@ public class Program extends JFrame {
         catch(FileNotFoundException e)
         {
             System.out.println("Unable to open file " + mapFile);
+            adderror("Unable to open file " + mapFile);
+            stopSimulation();
         }
         catch (IOException e)
         {
@@ -241,6 +356,7 @@ public class Program extends JFrame {
         catch(FileNotFoundException e)
         {
             System.out.println("Unable to open file " + airportFile);
+            adderror("Unable to open file " + airportFile);
         }
         catch (IOException e)
         {
@@ -259,44 +375,50 @@ public class Program extends JFrame {
 
         try
         {
+            double minutesPerFrame = DrawPanel.PERIOD * 0.000017 * TIME_FACTOR; //in minutes
+
             FileReader fileReader = new FileReader(flightFile);
 
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-            while((line = bufferedReader.readLine() ) != null)
-            {
-                lineVector = line.split(",");
-                Flight f = new Flight(lineVector);
-                flights.add(f);
-                row++;
+            while((line = bufferedReader.readLine() ) != null) {
 
+                try {
+                    lineVector = line.split(",");
+
+                    Flight f = new Flight(lineVector, minutesPerFrame);
+                    if(calculateRoute(f))
+                        flights.add(f);
+                    row++;
+
+                } catch (ParseException e) {
+                    adderror(e.getMessage() + " constraint error at line " + (row + 1) + " of file");
+                }
             }
 
             /*Test
             for(Airport a : this.airports)
                 System.out.println(a);
                 */
-
-
+            aircraftLabel.setText("Total Aircrafts: " + flights.size());
 
         }
         catch(FileNotFoundException e)
         {
             System.out.println("Unable to open file " + flightFile);
+            adderror("Unable to open file " + flightFile);
+
         }
         catch (IOException e)
         {
             System.out.println("Error reading file " + flightFile);
         }
-        catch (ParseException e)
-        {
-            adderror( e.getMessage() + " constraint error at line " + (row + 1 ) + " of file");
-        }
+
     }
 
     /*Route calculation for a flight*/
-    /*Returns a vector containing the moves, speed and altitude */
-    private void calculateRoute(Flight f)
+
+    private boolean calculateRoute(Flight f)
     {
         /*First and last point */
         Pair start ;
@@ -314,8 +436,28 @@ public class Program extends JFrame {
         if(departure == null || arrival == null)
         {
             adderror("Could not find airport ... Stopping");
-            return;
+            return false;
         }
+
+
+        /*Check compatibility for aircrafts and airports*/
+        if(
+                ( (arrival.getType() == 1 || departure.getType() == 1) && f.getPlane().getPlaneType() != 1) ||
+                ( (arrival.getType() == 2 || departure.getType() == 2) && f.getPlane().getPlaneType() == 1)
+                )
+        {
+            adderror("\nIncompatible airports for flight : " + f.getName());
+            return false;
+        }
+
+
+
+
+        //Change the departure id and arrival id to Names
+        f.setDepName(departure.getName());
+        f.setArrName(arrival.getName());
+
+
         f.setPosition(new Pair(departure.getPosition().x * BLOCK_SIZE, departure.getPosition().y * BLOCK_SIZE));
 
         //next after departure airport
@@ -325,11 +467,9 @@ public class Program extends JFrame {
         end   = Pair.add(arrival.getPosition(), orientations[arrival.getOrientation()]);
 
 
-        //f.moves.add(departure.getPosition());
+        //f.moves.add(departure.getPositionAndUpdate());
         //f.moves.add(start);
 
-        //Strategy: Move horizontally then vertically. Dodge the airports sideways if
-        //necessary.
 
         Pair position = start;
 
@@ -344,18 +484,7 @@ public class Program extends JFrame {
 
                 Pair next = new Pair(d, 0 );
                 position = Pair.add(position, next);
-                System.out.println(position + " " + " arrival " + arrival.getPosition());
-                if (position .equals( arrival.getPosition()))
-                {
-                    System.out.println("Hello?");
-                    Pair juke = new Pair(d, -1);
-                    f.moves.add(juke);
-                    juke = new Pair(d, 1);
-                    f.moves.add(juke);
-                    i += d;
-                }
-                else
-                    f.moves.add(next);
+                f.moves.add(next);
             }
 
 
@@ -373,12 +502,13 @@ public class Program extends JFrame {
             //Finally add the arrival airport move
             f.moves.add(new Pair(-orientations[arrival.getOrientation()].x, -orientations[arrival.getOrientation()].y));
 
-        //Calculate Speed and Altitude
+        //Calculate Speed
         f.calculateSpeeds(SPEED_FACTOR, departure.getPosition(), arrival.getPosition());
 
 
-        for(Pair p : f.moves)
-            System.out.println(p);
+//        for(Pair p : f.moves)
+//            System.out.println(p);
+        return true;
     }
 
 
@@ -390,6 +520,80 @@ public class Program extends JFrame {
                 TimeUnit.MILLISECONDS.toMinutes(realTime) % TimeUnit.HOURS.toMinutes(1));
 
         timeLabel.setText("Simulated Time: " + hm);
+    }
+
+
+    public void updateDialogs()
+    {
+        if(aircraftDialog != null)
+            aircraftDialog.update();
+        if(flightsDialog != null)
+            flightsDialog.update();
+
+    }
+
+    public void crashTests()
+    {
+        for(Flight f : this.flights)
+        {
+            if (f.isRunning) {
+            /*Fuel Test*/
+                if (f.getFuel() <= 0) {
+                    adderror("\nCRASH (No Fuel). Flight \"" + f.getName() + "\" lost.");
+                    this.collisions++;
+                    collisionLabel.setText("Collisions: " + this.collisions);
+                    f.setState(PlaneState.CRASHED);
+                    f.isRunning = false;
+                }
+
+            /*Height test*/
+
+            //Plane - Map
+                int x = f.getPosition().x / BLOCK_SIZE;
+                int y = f.getPosition().y / BLOCK_SIZE;
+                if (f.getHeight() <= worldData[y][x])
+                {
+                    adderror("\nCRASH (Height). Flight \"" + f.getName() + "\" lost.");
+                    this.collisions ++;
+                    f.setState(PlaneState.CRASHED);
+                    f.isRunning = false;
+                }
+
+
+
+
+            /*Land test*/
+                if (f.getState() == PlaneState.LANDED ) {
+                    addinfo("\nLANDING. Flight \"" + f.getName() + "\" landed.");
+                    this.landings++;
+                    landingsLabel.setText("Landings: " + this.landings);
+                    f.isRunning = false;
+                }
+            }
+        }
+
+        //Height test: Plane - Plane
+        for(int i = 0; i < flights.size(); i++)
+        {
+            for(int j = i + 1; j < flights.size(); j++)
+            {
+                Flight f1 = flights.get(i);
+                Flight f2 = flights.get(j);
+                if( Math.abs(f1.getHeight() - f2.getHeight()) < 500 &&
+                        Pair.quadrance(f1.getPositionAndUpdate(), f2.getPositionAndUpdate()) < 4 )
+                {
+                    adderror("\nCRASH. Flight \"" + f1.getName() + "\" crashed with \"" + f2.getName() + "\"");
+                    this.collisions += 2;
+                    f1.setState(PlaneState.CRASHED);
+                    f2.setState(PlaneState.CRASHED);
+                    f1.isRunning = false;
+                    f2.isRunning = false;
+                }
+
+            }
+
+        }
+
     }
 
 
@@ -405,7 +609,8 @@ public class Program extends JFrame {
     {
         try {
             StyleConstants.setForeground(style, Color.BLACK);
-            document.insertString(0, "\n" + s, style);
+            document.insertString(document.getLength(), "\n" + s, style);
+
         }
         catch (BadLocationException e){}
     }
@@ -414,10 +619,46 @@ public class Program extends JFrame {
     {
         try {
             StyleConstants.setForeground(style, Color.RED);
-            document.insertString(0, "\n" + s, style);
+            document.insertString(document.getLength(), "\n" + s, style);
         }
         catch (BadLocationException e){}
     }
+
+
+    /*ACTION LISTENER IMPLEMENTATION*/
+    public void actionPerformed (ActionEvent e)
+    {
+        if (e.getSource() == start)
+            this.startSimulation(null);
+        else if (e.getSource() == stop)
+            this.stopSimulation();
+        else if (e.getSource() == load)
+        {
+            String mapid = JOptionPane.showInputDialog(this, "Enter the MAPID of simulation", "Load Simulation", JOptionPane.QUESTION_MESSAGE );
+            if (mapid!=null && !mapid.isEmpty())
+                startSimulation(mapid);
+        }
+        else if (e.getSource() == exit)
+        {
+            stopSimulation();
+            System.exit(NORMAL);
+        }
+
+        else if (e.getSource() == airportsM)
+        {
+           new InfoDialog("Airports", airports);
+
+        }
+        else if (e.getSource() == aircraftsM)
+            aircraftDialog  = new InfoDialog("Aircrafts", flights);
+        else if (e.getSource() == flightsM)
+        {
+            flightsDialog = new InfoDialog("Flights", flights);
+        }
+    }
+
+
+
 
     public static void main(String[] args)
     {

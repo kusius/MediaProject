@@ -51,8 +51,10 @@ public class Airport {
     @Override
     public String toString()
     {
-        String result = getID() + " " + getPosition().x + " " + getPosition().y + " " +  getName() + " " + getOrientation() + " " +
-                getType() + " " + isOpen();
+        String result =
+                "ID : " + getID() + "<br>Name : " + getName() + "<br>Type : " + getType() + "<br>State : " + (isOpen() ? "Open" : "Closed")
+        + "<br>Orientation : " + getOrientation();
+
         return result ;
     }
 }

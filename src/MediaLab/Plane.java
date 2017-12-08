@@ -106,6 +106,6 @@ public class Plane {
     public String toString()
     {
         return "---- " + Name + " ----\n" +
-                DASpeed + ", " + MaxSpeed + ", " + MaxFuel + ", " + MaxAlt + ", " + DARate + ", " + Consumption + ", ";
+                DASpeed + ", " + MaxSpeed + ", " + MaxFuel + ", " + MaxAlt + ", " + DARate + ", " + Consumption;
     }
 }

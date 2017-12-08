@@ -39,6 +39,11 @@ public class Pair {
         return result;
     }
 
+    public static int quadrance(Pair a, Pair b) //square of distance
+    {
+        return (a.x - b.x)^2 + (a.y - b.y)^2;
+    }
+
     public boolean isAdjacent (Pair other)
     {
         int diffx = Math.abs(this.x - other.x);

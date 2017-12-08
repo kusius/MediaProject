@@ -2,10 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f3c100c-c6f9-49a9-ba05-6a33625b1aa7" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MediaLab/InfoDialog.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MediaLab/PlaneState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MediaProject/MediaLab/Airport.class" afterPath="$PROJECT_DIR$/out/production/MediaProject/MediaLab/Airport.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MediaProject/MediaLab/DrawPanel.class" afterPath="$PROJECT_DIR$/out/production/MediaProject/MediaLab/DrawPanel.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MediaProject/MediaLab/Flight.class" afterPath="$PROJECT_DIR$/out/production/MediaProject/MediaLab/Flight.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MediaProject/MediaLab/Pair.class" afterPath="$PROJECT_DIR$/out/production/MediaProject/MediaLab/Pair.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MediaProject/MediaLab/Plane.class" afterPath="$PROJECT_DIR$/out/production/MediaProject/MediaLab/Plane.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MediaProject/MediaLab/Program.class" afterPath="$PROJECT_DIR$/out/production/MediaProject/MediaLab/Program.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MediaLab/Airport.java" afterPath="$PROJECT_DIR$/src/MediaLab/Airport.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MediaLab/DrawPanel.java" afterPath="$PROJECT_DIR$/src/MediaLab/DrawPanel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MediaLab/Flight.java" afterPath="$PROJECT_DIR$/src/MediaLab/Flight.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MediaLab/Pair.java" afterPath="$PROJECT_DIR$/src/MediaLab/Pair.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MediaLab/Plane.java" afterPath="$PROJECT_DIR$/src/MediaLab/Plane.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MediaLab/Program.java" afterPath="$PROJECT_DIR$/src/MediaLab/Program.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -25,27 +35,59 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Program.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Program.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MediaLab/Program.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="84" column="28" lean-forward="false" selection-start-line="84" selection-start-column="28" selection-end-line="84" selection-end-column="28" />
+            <state relative-caret-position="216">
+              <caret line="27" column="99" lean-forward="true" selection-start-line="27" selection-start-column="99" selection-end-line="27" selection-end-column="99" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#Program#0;class#Program#0" expanded="false" />
+                <element signature="method#startSimulation#0;class#Program#0" expanded="false" />
+                <element signature="method#stopSimulation#0;class#Program#0" expanded="false" />
+                <element signature="method#initUI#0;class#Program#0" expanded="false" />
+                <element signature="method#loadMap#0;class#Program#0" expanded="false" />
+                <element signature="method#loadAirports#0;class#Program#0" expanded="false" />
+                <element signature="method#loadFlights#0;class#Program#0" expanded="false" />
+                <element signature="method#updateDialogs#0;class#Program#0" expanded="false" />
+                <element signature="method#crashTests#0;class#Program#0" expanded="false" />
                 <element signature="method#centerWindow#0;class#Program#0" expanded="false" />
+                <element signature="method#addinfo#0;class#Program#0" expanded="false" />
                 <element signature="method#adderror#0;class#Program#0" expanded="false" />
+                <element signature="method#actionPerformed#0;class#Program#0" expanded="false" />
+                <element signature="method#main#0;class#Program#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DrawPanel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MediaLab/DrawPanel.java">
+      <file leaf-file-name="InfoDialog.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MediaLab/InfoDialog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="70" column="39" lean-forward="false" selection-start-line="70" selection-start-column="39" selection-end-line="70" selection-end-column="39" />
+            <state relative-caret-position="245">
+              <caret line="117" column="67" lean-forward="false" selection-start-line="117" selection-start-column="67" selection-end-line="117" selection-end-column="67" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2346#2347#0" expanded="true" />
+                <element signature="e#2384#2385#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DrawPanel.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/MediaLab/DrawPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="35" lean-forward="false" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#stopSim#0;class#DrawPanel#0" expanded="false" />
+                <element signature="method#draw#0;class#DrawPanel#0" expanded="false" />
+                <element signature="method#drawFlights#0;class#DrawPanel#0" expanded="false" />
+                <element signature="method#drawWorld#0;class#DrawPanel#0" expanded="false" />
+                <element signature="method#drawAirports#0;class#DrawPanel#0" expanded="false" />
+                <element signature="method#loadImages#0;class#DrawPanel#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -54,11 +96,23 @@
       <file leaf-file-name="Flight.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MediaLab/Flight.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1305">
-              <caret line="147" column="0" lean-forward="false" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
+            <state relative-caret-position="289">
+              <caret line="17" column="22" lean-forward="true" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#getPositionAndUpdate#0;class#Flight#0" expanded="false" />
+                <element signature="method#toString#0;class#Flight#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlaneState.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MediaLab/PlaneState.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="51" lean-forward="false" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -66,18 +120,8 @@
       <file leaf-file-name="Plane.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MediaLab/Plane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1067">
-              <caret line="98" column="9" lean-forward="false" selection-start-line="98" selection-start-column="9" selection-end-line="98" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Pair.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MediaLab/Pair.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="693">
-              <caret line="45" column="43" lean-forward="false" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
+            <state relative-caret-position="1411">
+              <caret line="108" column="111" lean-forward="false" selection-start-line="108" selection-start-column="111" selection-end-line="108" selection-end-column="111" />
               <folding />
             </state>
           </provider>
@@ -86,8 +130,18 @@
       <file leaf-file-name="Airport.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MediaLab/Airport.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="43" column="45" lean-forward="false" selection-start-line="43" selection-start-column="45" selection-end-line="43" selection-end-column="45" />
+            <state relative-caret-position="731">
+              <caret line="53" column="8" lean-forward="false" selection-start-line="53" selection-start-column="8" selection-end-line="55" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Pair.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MediaLab/Pair.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="11" lean-forward="false" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -114,6 +168,14 @@
       <find>calculate</find>
       <find>current</find>
       <find>Pair</find>
+      <find>System.out.</find>
+      <find>printl</find>
+      <find>DrawPanel</find>
+      <find>simulationPanel</find>
+      <find>BorderL</find>
+      <find>GridLa</find>
+      <find>topP</find>
+      <find>haslanded</find>
     </findStrings>
     <replaceStrings>
       <replace>Altitude</replace>
@@ -134,20 +196,23 @@
         <option value="$PROJECT_DIR$/src/Airplanes.java" />
         <option value="$PROJECT_DIR$/src/DrawPanel.java" />
         <option value="$PROJECT_DIR$/src/Program.java" />
-        <option value="$PROJECT_DIR$/src/MediaLab/Airport.java" />
-        <option value="$PROJECT_DIR$/src/MediaLab/Plane.java" />
         <option value="$PROJECT_DIR$/src/MediaLab/Pair.java" />
+        <option value="$PROJECT_DIR$/src/MediaLab/Plane.java" />
+        <option value="$PROJECT_DIR$/src/MediaLab/ListDialog.java" />
+        <option value="$PROJECT_DIR$/src/MediaLab/Airport.java" />
+        <option value="$PROJECT_DIR$/src/MediaLab/PlaneState.java" />
+        <option value="$PROJECT_DIR$/src/MediaLab/InfoDialog.java" />
+        <option value="$PROJECT_DIR$/src/MediaLab/Program.java" />
         <option value="$PROJECT_DIR$/src/MediaLab/Flight.java" />
         <option value="$PROJECT_DIR$/src/MediaLab/DrawPanel.java" />
-        <option value="$PROJECT_DIR$/src/MediaLab/Program.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1066" />
+    <option name="x" value="-7" />
+    <option name="y" value="2" />
+    <option name="width" value="1932" />
+    <option name="height" value="1055" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -165,9 +230,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -204,7 +269,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
-    <property name="SearchEverywhereHistoryKey" value="calculateroute&#9;PSI&#9;JAVA://MediaLab.Program#calculateRoute&#10;isadj&#9;PSI&#9;JAVA://MediaLab.Pair#isAdjacent&#10;calculateRoute&#9;PSI&#9;JAVA://MediaLab.Program#calculateRoute" />
+    <property name="SearchEverywhereHistoryKey" value="minutesper&#9;null&#9;null&#10;haslanded&#9;PSI&#9;JAVA://MediaLab.Flight#hasLanded&#10;drawfli&#9;PSI&#9;JAVA://MediaLab.DrawPanel#drawFlights&#10;adderror&#9;PSI&#9;JAVA://MediaLab.Program#adderror&#10;addinfo&#9;PSI&#9;JAVA://MediaLab.Program#addinfo&#10;collisionlabel&#9;PSI&#9;JAVA://MediaLab.Program#collisionLabel&#10;calculateroute&#9;PSI&#9;JAVA://MediaLab.Program#calculateRoute&#10;isadj&#9;PSI&#9;JAVA://MediaLab.Pair#isAdjacent&#10;calculateRoute&#9;PSI&#9;JAVA://MediaLab.Program#calculateRoute" />
   </component>
   <component name="RunManager" selected="Application.Program">
     <configuration default="false" name="Program" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -461,25 +526,26 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
+    <frame x="-7" y="2" width="1932" height="1055" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32910052" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39958158" sideWeight="0.50416666" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23640168" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23915344" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12864584" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12839249" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25714287" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -491,14 +557,15 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -506,42 +573,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/MediaLab/DrawPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MediaLab/Flight.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2210">
-          <caret line="149" column="17" lean-forward="false" selection-start-line="149" selection-start-column="17" selection-end-line="149" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MediaLab/Plane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1394">
-          <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MediaLab/Pair.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="45" column="43" lean-forward="false" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MediaLab/Airport.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
@@ -556,8 +587,20 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#Program#0;class#Program#0" expanded="false" />
+            <element signature="method#startSimulation#0;class#Program#0" expanded="false" />
+            <element signature="method#stopSimulation#0;class#Program#0" expanded="false" />
+            <element signature="method#initUI#0;class#Program#0" expanded="false" />
+            <element signature="method#loadMap#0;class#Program#0" expanded="false" />
+            <element signature="method#loadAirports#0;class#Program#0" expanded="false" />
+            <element signature="method#loadFlights#0;class#Program#0" expanded="false" />
+            <element signature="method#updateDialogs#0;class#Program#0" expanded="false" />
+            <element signature="method#crashTests#0;class#Program#0" expanded="false" />
             <element signature="method#centerWindow#0;class#Program#0" expanded="false" />
+            <element signature="method#addinfo#0;class#Program#0" expanded="false" />
             <element signature="method#adderror#0;class#Program#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#Program#0" expanded="false" />
+            <element signature="method#main#0;class#Program#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -568,6 +611,12 @@
           <caret line="65" column="10" lean-forward="false" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#stopSim#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#draw#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#drawFlights#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#drawWorld#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#drawAirports#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#loadImages#0;class#DrawPanel#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -578,6 +627,8 @@
           <caret line="149" column="17" lean-forward="false" selection-start-line="149" selection-start-column="17" selection-end-line="149" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#getPositionAndUpdate#0;class#Flight#0" expanded="false" />
+            <element signature="method#toString#0;class#Flight#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -612,8 +663,20 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#Program#0;class#Program#0" expanded="false" />
+            <element signature="method#startSimulation#0;class#Program#0" expanded="false" />
+            <element signature="method#stopSimulation#0;class#Program#0" expanded="false" />
+            <element signature="method#initUI#0;class#Program#0" expanded="false" />
+            <element signature="method#loadMap#0;class#Program#0" expanded="false" />
+            <element signature="method#loadAirports#0;class#Program#0" expanded="false" />
+            <element signature="method#loadFlights#0;class#Program#0" expanded="false" />
+            <element signature="method#updateDialogs#0;class#Program#0" expanded="false" />
+            <element signature="method#crashTests#0;class#Program#0" expanded="false" />
             <element signature="method#centerWindow#0;class#Program#0" expanded="false" />
+            <element signature="method#addinfo#0;class#Program#0" expanded="false" />
             <element signature="method#adderror#0;class#Program#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#Program#0" expanded="false" />
+            <element signature="method#main#0;class#Program#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -624,6 +687,12 @@
           <caret line="117" column="18" lean-forward="true" selection-start-line="117" selection-start-column="18" selection-end-line="117" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#stopSim#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#draw#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#drawFlights#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#drawWorld#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#drawAirports#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#loadImages#0;class#DrawPanel#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -634,6 +703,8 @@
           <caret line="118" column="45" lean-forward="false" selection-start-line="118" selection-start-column="45" selection-end-line="118" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#getPositionAndUpdate#0;class#Flight#0" expanded="false" />
+            <element signature="method#toString#0;class#Flight#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -668,8 +739,20 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#Program#0;class#Program#0" expanded="false" />
+            <element signature="method#startSimulation#0;class#Program#0" expanded="false" />
+            <element signature="method#stopSimulation#0;class#Program#0" expanded="false" />
+            <element signature="method#initUI#0;class#Program#0" expanded="false" />
+            <element signature="method#loadMap#0;class#Program#0" expanded="false" />
+            <element signature="method#loadAirports#0;class#Program#0" expanded="false" />
+            <element signature="method#loadFlights#0;class#Program#0" expanded="false" />
+            <element signature="method#updateDialogs#0;class#Program#0" expanded="false" />
+            <element signature="method#crashTests#0;class#Program#0" expanded="false" />
             <element signature="method#centerWindow#0;class#Program#0" expanded="false" />
+            <element signature="method#addinfo#0;class#Program#0" expanded="false" />
             <element signature="method#adderror#0;class#Program#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#Program#0" expanded="false" />
+            <element signature="method#main#0;class#Program#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -680,6 +763,8 @@
           <caret line="112" column="0" lean-forward="false" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#getPositionAndUpdate#0;class#Flight#0" expanded="false" />
+            <element signature="method#toString#0;class#Flight#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -714,6 +799,12 @@
           <caret line="95" column="9" lean-forward="false" selection-start-line="95" selection-start-column="9" selection-end-line="95" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#stopSim#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#draw#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#drawFlights#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#drawWorld#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#drawAirports#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#loadImages#0;class#DrawPanel#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -724,8 +815,20 @@
           <caret line="319" column="39" lean-forward="false" selection-start-line="319" selection-start-column="39" selection-end-line="319" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#Program#0;class#Program#0" expanded="false" />
+            <element signature="method#startSimulation#0;class#Program#0" expanded="false" />
+            <element signature="method#stopSimulation#0;class#Program#0" expanded="false" />
+            <element signature="method#initUI#0;class#Program#0" expanded="false" />
+            <element signature="method#loadMap#0;class#Program#0" expanded="false" />
+            <element signature="method#loadAirports#0;class#Program#0" expanded="false" />
+            <element signature="method#loadFlights#0;class#Program#0" expanded="false" />
+            <element signature="method#updateDialogs#0;class#Program#0" expanded="false" />
+            <element signature="method#crashTests#0;class#Program#0" expanded="false" />
             <element signature="method#centerWindow#0;class#Program#0" expanded="false" />
+            <element signature="method#addinfo#0;class#Program#0" expanded="false" />
             <element signature="method#adderror#0;class#Program#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#Program#0" expanded="false" />
+            <element signature="method#main#0;class#Program#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -736,6 +839,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#getPositionAndUpdate#0;class#Flight#0" expanded="false" />
+            <element signature="method#toString#0;class#Flight#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -770,6 +875,12 @@
           <caret line="95" column="9" lean-forward="true" selection-start-line="95" selection-start-column="9" selection-end-line="95" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#stopSim#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#draw#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#drawFlights#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#drawWorld#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#drawAirports#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#loadImages#0;class#DrawPanel#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -780,8 +891,20 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#Program#0;class#Program#0" expanded="false" />
+            <element signature="method#startSimulation#0;class#Program#0" expanded="false" />
+            <element signature="method#stopSimulation#0;class#Program#0" expanded="false" />
+            <element signature="method#initUI#0;class#Program#0" expanded="false" />
+            <element signature="method#loadMap#0;class#Program#0" expanded="false" />
+            <element signature="method#loadAirports#0;class#Program#0" expanded="false" />
+            <element signature="method#loadFlights#0;class#Program#0" expanded="false" />
+            <element signature="method#updateDialogs#0;class#Program#0" expanded="false" />
+            <element signature="method#crashTests#0;class#Program#0" expanded="false" />
             <element signature="method#centerWindow#0;class#Program#0" expanded="false" />
+            <element signature="method#addinfo#0;class#Program#0" expanded="false" />
             <element signature="method#adderror#0;class#Program#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#Program#0" expanded="false" />
+            <element signature="method#main#0;class#Program#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -800,6 +923,8 @@
           <caret line="25" column="20" lean-forward="true" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#getPositionAndUpdate#0;class#Flight#0" expanded="false" />
+            <element signature="method#toString#0;class#Flight#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -818,6 +943,12 @@
           <caret line="58" column="14" lean-forward="false" selection-start-line="58" selection-start-column="14" selection-end-line="58" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#stopSim#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#draw#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#drawFlights#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#drawWorld#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#drawAirports#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#loadImages#0;class#DrawPanel#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -828,8 +959,20 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#Program#0;class#Program#0" expanded="false" />
+            <element signature="method#startSimulation#0;class#Program#0" expanded="false" />
+            <element signature="method#stopSimulation#0;class#Program#0" expanded="false" />
+            <element signature="method#initUI#0;class#Program#0" expanded="false" />
+            <element signature="method#loadMap#0;class#Program#0" expanded="false" />
+            <element signature="method#loadAirports#0;class#Program#0" expanded="false" />
+            <element signature="method#loadFlights#0;class#Program#0" expanded="false" />
+            <element signature="method#updateDialogs#0;class#Program#0" expanded="false" />
+            <element signature="method#crashTests#0;class#Program#0" expanded="false" />
             <element signature="method#centerWindow#0;class#Program#0" expanded="false" />
+            <element signature="method#addinfo#0;class#Program#0" expanded="false" />
             <element signature="method#adderror#0;class#Program#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#Program#0" expanded="false" />
+            <element signature="method#main#0;class#Program#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -840,6 +983,8 @@
           <caret line="36" column="48" lean-forward="false" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#getPositionAndUpdate#0;class#Flight#0" expanded="false" />
+            <element signature="method#toString#0;class#Flight#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -858,6 +1003,12 @@
           <caret line="58" column="14" lean-forward="true" selection-start-line="58" selection-start-column="14" selection-end-line="58" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#stopSim#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#draw#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#drawFlights#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#drawWorld#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#drawAirports#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#loadImages#0;class#DrawPanel#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -868,8 +1019,20 @@
           <caret line="74" column="0" lean-forward="true" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#Program#0;class#Program#0" expanded="false" />
+            <element signature="method#startSimulation#0;class#Program#0" expanded="false" />
+            <element signature="method#stopSimulation#0;class#Program#0" expanded="false" />
+            <element signature="method#initUI#0;class#Program#0" expanded="false" />
+            <element signature="method#loadMap#0;class#Program#0" expanded="false" />
+            <element signature="method#loadAirports#0;class#Program#0" expanded="false" />
+            <element signature="method#loadFlights#0;class#Program#0" expanded="false" />
+            <element signature="method#updateDialogs#0;class#Program#0" expanded="false" />
+            <element signature="method#crashTests#0;class#Program#0" expanded="false" />
             <element signature="method#centerWindow#0;class#Program#0" expanded="false" />
+            <element signature="method#addinfo#0;class#Program#0" expanded="false" />
             <element signature="method#adderror#0;class#Program#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#Program#0" expanded="false" />
+            <element signature="method#main#0;class#Program#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -880,6 +1043,12 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#stopSim#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#draw#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#drawFlights#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#drawWorld#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#drawAirports#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#loadImages#0;class#DrawPanel#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -890,8 +1059,20 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#Program#0;class#Program#0" expanded="false" />
+            <element signature="method#startSimulation#0;class#Program#0" expanded="false" />
+            <element signature="method#stopSimulation#0;class#Program#0" expanded="false" />
+            <element signature="method#initUI#0;class#Program#0" expanded="false" />
+            <element signature="method#loadMap#0;class#Program#0" expanded="false" />
+            <element signature="method#loadAirports#0;class#Program#0" expanded="false" />
+            <element signature="method#loadFlights#0;class#Program#0" expanded="false" />
+            <element signature="method#updateDialogs#0;class#Program#0" expanded="false" />
+            <element signature="method#crashTests#0;class#Program#0" expanded="false" />
             <element signature="method#centerWindow#0;class#Program#0" expanded="false" />
+            <element signature="method#addinfo#0;class#Program#0" expanded="false" />
             <element signature="method#adderror#0;class#Program#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#Program#0" expanded="false" />
+            <element signature="method#main#0;class#Program#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -902,8 +1083,20 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#Program#0;class#Program#0" expanded="false" />
+            <element signature="method#startSimulation#0;class#Program#0" expanded="false" />
+            <element signature="method#stopSimulation#0;class#Program#0" expanded="false" />
+            <element signature="method#initUI#0;class#Program#0" expanded="false" />
+            <element signature="method#loadMap#0;class#Program#0" expanded="false" />
+            <element signature="method#loadAirports#0;class#Program#0" expanded="false" />
+            <element signature="method#loadFlights#0;class#Program#0" expanded="false" />
+            <element signature="method#updateDialogs#0;class#Program#0" expanded="false" />
+            <element signature="method#crashTests#0;class#Program#0" expanded="false" />
             <element signature="method#centerWindow#0;class#Program#0" expanded="false" />
+            <element signature="method#addinfo#0;class#Program#0" expanded="false" />
             <element signature="method#adderror#0;class#Program#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#Program#0" expanded="false" />
+            <element signature="method#main#0;class#Program#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -914,8 +1107,20 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#Program#0;class#Program#0" expanded="false" />
+            <element signature="method#startSimulation#0;class#Program#0" expanded="false" />
+            <element signature="method#stopSimulation#0;class#Program#0" expanded="false" />
+            <element signature="method#initUI#0;class#Program#0" expanded="false" />
+            <element signature="method#loadMap#0;class#Program#0" expanded="false" />
+            <element signature="method#loadAirports#0;class#Program#0" expanded="false" />
+            <element signature="method#loadFlights#0;class#Program#0" expanded="false" />
+            <element signature="method#updateDialogs#0;class#Program#0" expanded="false" />
+            <element signature="method#crashTests#0;class#Program#0" expanded="false" />
             <element signature="method#centerWindow#0;class#Program#0" expanded="false" />
+            <element signature="method#addinfo#0;class#Program#0" expanded="false" />
             <element signature="method#adderror#0;class#Program#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#Program#0" expanded="false" />
+            <element signature="method#main#0;class#Program#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -926,8 +1131,20 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#Program#0;class#Program#0" expanded="false" />
+            <element signature="method#startSimulation#0;class#Program#0" expanded="false" />
+            <element signature="method#stopSimulation#0;class#Program#0" expanded="false" />
+            <element signature="method#initUI#0;class#Program#0" expanded="false" />
+            <element signature="method#loadMap#0;class#Program#0" expanded="false" />
+            <element signature="method#loadAirports#0;class#Program#0" expanded="false" />
+            <element signature="method#loadFlights#0;class#Program#0" expanded="false" />
+            <element signature="method#updateDialogs#0;class#Program#0" expanded="false" />
+            <element signature="method#crashTests#0;class#Program#0" expanded="false" />
             <element signature="method#centerWindow#0;class#Program#0" expanded="false" />
+            <element signature="method#addinfo#0;class#Program#0" expanded="false" />
             <element signature="method#adderror#0;class#Program#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#Program#0" expanded="false" />
+            <element signature="method#main#0;class#Program#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -939,58 +1156,109 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MediaLab/Airport.java">
+    <entry file="file://$PROJECT_DIR$/src/MediaLab/Pair.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="43" column="45" lean-forward="false" selection-start-line="43" selection-start-column="45" selection-end-line="43" selection-end-column="45" />
+        <state relative-caret-position="153">
+          <caret line="9" column="11" lean-forward="false" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MediaLab/Flight.java">
+    <entry file="file://$PROJECT_DIR$/src/MediaLab/ListDialog.java" />
+    <entry file="file://$PROJECT_DIR$/src/MediaLab/Plane.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1305">
-          <caret line="147" column="0" lean-forward="false" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
+        <state relative-caret-position="1411">
+          <caret line="108" column="111" lean-forward="false" selection-start-line="108" selection-start-column="111" selection-end-line="108" selection-end-column="111" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MediaLab/Airport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="53" column="8" lean-forward="false" selection-start-line="53" selection-start-column="8" selection-end-line="55" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/util/Vector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="733" column="0" lean-forward="false" selection-start-line="733" selection-start-column="0" selection-end-line="733" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#27980#27981#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MediaLab/Plane.java">
+    <entry file="file://$PROJECT_DIR$/src/MediaLab/PlaneState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1067">
-          <caret line="98" column="9" lean-forward="false" selection-start-line="98" selection-start-column="9" selection-end-line="98" selection-end-column="9" />
+        <state relative-caret-position="102">
+          <caret line="6" column="51" lean-forward="false" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MediaLab/Pair.java">
+    <entry file="file://$PROJECT_DIR$/src/MediaLab/InfoDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="45" column="43" lean-forward="false" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MediaLab/DrawPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="70" column="39" lean-forward="false" selection-start-line="70" selection-start-column="39" selection-end-line="70" selection-end-column="39" />
+        <state relative-caret-position="245">
+          <caret line="117" column="67" lean-forward="false" selection-start-line="117" selection-start-column="67" selection-end-line="117" selection-end-column="67" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2346#2347#0" expanded="true" />
+            <element signature="e#2384#2385#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MediaLab/Program.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="84" column="28" lean-forward="false" selection-start-line="84" selection-start-column="28" selection-end-line="84" selection-end-column="28" />
+        <state relative-caret-position="216">
+          <caret line="27" column="99" lean-forward="true" selection-start-line="27" selection-start-column="99" selection-end-line="27" selection-end-column="99" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#Program#0;class#Program#0" expanded="false" />
+            <element signature="method#startSimulation#0;class#Program#0" expanded="false" />
+            <element signature="method#stopSimulation#0;class#Program#0" expanded="false" />
+            <element signature="method#initUI#0;class#Program#0" expanded="false" />
+            <element signature="method#loadMap#0;class#Program#0" expanded="false" />
+            <element signature="method#loadAirports#0;class#Program#0" expanded="false" />
+            <element signature="method#loadFlights#0;class#Program#0" expanded="false" />
+            <element signature="method#updateDialogs#0;class#Program#0" expanded="false" />
+            <element signature="method#crashTests#0;class#Program#0" expanded="false" />
             <element signature="method#centerWindow#0;class#Program#0" expanded="false" />
+            <element signature="method#addinfo#0;class#Program#0" expanded="false" />
             <element signature="method#adderror#0;class#Program#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#Program#0" expanded="false" />
+            <element signature="method#main#0;class#Program#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MediaLab/Flight.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="22" lean-forward="true" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getPositionAndUpdate#0;class#Flight#0" expanded="false" />
+            <element signature="method#toString#0;class#Flight#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MediaLab/DrawPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="35" lean-forward="false" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#stopSim#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#draw#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#drawFlights#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#drawWorld#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#drawAirports#0;class#DrawPanel#0" expanded="false" />
+            <element signature="method#loadImages#0;class#DrawPanel#0" expanded="false" />
           </folding>
         </state>
       </provider>
