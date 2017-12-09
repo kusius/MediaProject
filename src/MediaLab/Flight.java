@@ -41,7 +41,7 @@ public class Flight {
     public Vector<Pair> moves;
     public float[] speed;
     public int[] altitude;
-    private int  currentPos = -1;
+    private int  currentPos = 0;
     public boolean isRunning = true;
 
 
@@ -98,16 +98,20 @@ public class Flight {
         return plane;
     }
 
-    public float getFlightSpeed() {
-        return speed[currentPos] / speedFactor;
+    public int getFlightSpeed() {
+        if (currentPos < moves.size())
+            return (int)Math.round(speed[currentPos] / speedFactor);
+        else
+            return (int)Math.round(speed[moves.size() - 1] / speedFactor);
     }
 
-    public int getAltitude() {
-        return Altitude;
+    public float getAltitude() {
+       return  Math.round(Height * 100.0f) / 100.0f;
     }
 
     public float getFuel() {
-        return Fuel;
+        return Math.round(Fuel * 100.0f) / 100.0f;
+//        return Fuel;
     }
 
     public int getCurrentPos() {return (currentPos < moves.size()) ? currentPos: currentPos - 1;}
@@ -156,114 +160,78 @@ public class Flight {
 
     private void update()
     {
-        if(isRunning) {
-            int pixelsToMove = 0;
+        int pixelsToMove = 0;
+        if(isRunning)
+        {
 
+            pixelRemainder += speed[currentPos];
+//            System.out.println("Pixel Remainder " + pixelRemainder);
 
-            if (Position.x % BLOCK_SIZE == 0 && Position.y % BLOCK_SIZE == 0) {
+            if (pixelRemainder > 1)
+            {
+                //We can move (at least a pixel)
 
-                //change to next move if there is one
-                if (currentPos + 1 < moves.size()) {
-                    currentPos += 1;
+                pixelsToMove = (int) pixelRemainder;
 
+                //Total pixels moved in this square are
+                totalPixels += pixelsToMove;
 
-                    pixelsToMove = (int) (speed[currentPos] + pixelRemainder);
-                    totalPixels = pixelsToMove;
-                    pixelRemainder = speed[currentPos] + pixelRemainder - pixelsToMove;
+                //Remaining Pixels are (we keep them for next frame)
+                pixelRemainder = pixelRemainder - pixelsToMove;
 
-
+                //if new and old position are still in the same 16x16 square keep moving to reach end of square
+                if (totalPixels <= BLOCK_SIZE)
+                {
+                    //displacement
                     Pair d = new Pair(moves.get(currentPos).x * pixelsToMove, moves.get(currentPos).y * pixelsToMove);
-
                     Position = Pair.add(Position, d);
                 }
+
+
                 else
-                    State = PlaneState.LANDED;
-            } else {
-                if (currentPos < moves.size()) {
-
-
-                    pixelsToMove = (int) (pixelRemainder + speed[currentPos]);
-                    pixelRemainder = pixelRemainder + speed[currentPos] - pixelsToMove;
-
-                    totalPixels += pixelsToMove;
-
-                    if (totalPixels <= BLOCK_SIZE) {
-
-                        Pair d = new Pair(moves.get(currentPos).x * pixelsToMove, moves.get(currentPos).y * pixelsToMove);
-                        Position = Pair.add(Position, d);
-                    } else // totalPixels > BLOCK_SIZE
+                {
+                    currentPos ++;
+                    if(currentPos == moves.size()) // that's all folks
                     {
 
-                        if (totalPixels - pixelsToMove <= BLOCK_SIZE) {
-
-
-                            //move to the end of block, keep remainder and other if will handle the rest
-
-                            pixelsToMove = pixelsToMove - (int) (totalPixels - BLOCK_SIZE);
-                            pixelRemainder = totalPixels - BLOCK_SIZE;
-
-
-                            Pair d = new Pair(moves.get(currentPos).x * pixelsToMove, moves.get(currentPos).y * pixelsToMove);
-
-                            Position = Pair.add(Position, d);
-
-
-                        } else {//change square and continue moving
-
-                            if (currentPos + 1 < moves.size()) {
-                                currentPos += 1;
-
-                                pixelsToMove = (int) (pixelRemainder + speed[currentPos]);
-                                pixelRemainder = pixelRemainder + speed[currentPos] - pixelsToMove;
-
-                                totalPixels += pixelsToMove;
-
-
-                                Pair d = new Pair(moves.get(currentPos).x * pixelsToMove, moves.get(currentPos).y * pixelsToMove);
-
-                                Position = Pair.add(Position, d);
-                            }
-
-                        }
-
-
+                        State = PlaneState.LANDED;
+//                        isRunning = false;
+                        System.out.println("Plane has landed " + State);
+                    }
+                    else
+                    {
+                        //move to new square this many pixels
+                        Pair d = new Pair(moves.get(currentPos).x * pixelsToMove, moves.get(currentPos).y * pixelsToMove);
+                        Position = Pair.add(Position, d);
+                        totalPixels = totalPixels - BLOCK_SIZE;
                     }
                 }
-                else
-                    State = PlaneState.LANDED;
             }
 
-
-            /*
+              /*
             Update fuel consumption
              */
-
             Fuel -= 0.8f * pixelsToMove;
-
             /*
             Update height
              */
 
             //Ascend to altitude defined by this flight
-            if (Height < Altitude && currentPos != moves.size())
-            {
-                State  = PlaneState.TAKEOFF;
-                Height += plane.getDARate() * MinutesPerFrame;
-                Height = Math.min(Height, Altitude);
+            if(State != PlaneState.LANDED) {
+                if (Height < Altitude) {
+                    State = PlaneState.TAKEOFF;
+                    Height += plane.getDARate() * MinutesPerFrame;
+                    Height = Math.min(Height, Altitude);
+                } else
+                    State = PlaneState.FLIGHT;
+
+                //Descend to the arrival airport
+                if (Height >= 0 && (currentPos >= moves.size() - 3 )) {
+                    Height -= plane.getDARate() * MinutesPerFrame;
+                    Height = Math.max(0, Height);
+                    State = PlaneState.LANDING;
+                }
             }
-            else
-                State = PlaneState.FLIGHT;
-
-            //Descend to the arrival airport
-            if (Height >= 0 && (currentPos == moves.size() - 2) )
-            {
-                Height -= plane.getDARate() * MinutesPerFrame;
-                Height = Math.max (0, Height);
-                State = PlaneState.LANDING;
-            }
-
-
-            System.out.println("Height " + Height);
         }
     }
 
@@ -290,6 +258,7 @@ public class Flight {
             else
                 this.speed[i] = this.FlightSpeed * 1.0f * speedFactor;
 
+            System.out.println("Speed: " + this.speed[i] + "ppf");
             position = Pair.add(position, this.moves.get(i));
         }
     }
@@ -298,8 +267,8 @@ public class Flight {
     public String toString()
     {
         String result =
-                "Departure : " + getDepName() + "<br>Arrival : " + getArrName() + "<br>Speed : " + getFlightSpeed() + " knots" + "<br>Altitude : " + Height + " feet "
-                        + "<br>Fuel : " + Fuel + " kg ";
+                "Departure : " + getDepName() + "<br>Arrival : " + getArrName() + "<br>Speed : " + getFlightSpeed() + " knots" + "<br>Altitude : " + getAltitude() + " feet "
+                        + "<br>Fuel : " + getFuel() + " kg ";
         return result;
     }
 }

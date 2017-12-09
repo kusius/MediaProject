@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 public class DrawPanel extends JPanel implements ActionListener {
     private int[][] worldData;
     private Program parent;
-    public static int PERIOD = 6250;
+    public static int PERIOD = 75;
 
     //Graphics resources
     private Image aiport;

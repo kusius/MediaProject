@@ -24,7 +24,7 @@ public class Program extends JFrame implements ActionListener {
     public static final int WINDOW_HEIGHT = 550;
 
     public static final int BLOCK_SIZE = 16;
-    public static final float TIME_FACTOR = 60 / 5;//0.55f;
+    public static final float TIME_FACTOR = 60 / 0.5f;//0.55f;
     public static final float SPEED_FACTOR = TIME_FACTOR * (0.8f *  DrawPanel.PERIOD * 0.001f) / ( 3600); //speed in pixels per frame
 
     //Data
@@ -396,6 +396,7 @@ public class Program extends JFrame implements ActionListener {
                 }
             }
 
+
             /*Test
             for(Airport a : this.airports)
                 System.out.println(a);
@@ -536,10 +537,12 @@ public class Program extends JFrame implements ActionListener {
     {
         for(Flight f : this.flights)
         {
+
             if (f.isRunning) {
+                System.out.println("crashtst : "  + f.getState());
             /*Fuel Test*/
                 if (f.getFuel() <= 0) {
-                    adderror("\nCRASH (No Fuel). Flight \"" + f.getName() + "\" lost.");
+                    adderror("\nCRASH (No Fuel). Flight \"" + f.getName() + "\" lost. ");
                     this.collisions++;
                     collisionLabel.setText("Collisions: " + this.collisions);
                     f.setState(PlaneState.CRASHED);
@@ -553,12 +556,12 @@ public class Program extends JFrame implements ActionListener {
                 int y = f.getPosition().y / BLOCK_SIZE;
                 if (f.getHeight() <= worldData[y][x])
                 {
-                    adderror("\nCRASH (Height). Flight \"" + f.getName() + "\" lost.");
+                    adderror("\nCRASH (Height). Flight \"" + f.getName() + "\" lost." + f.getCurrentPos());
+                    System.out.println("Height at crash : " + f.getHeight() + "world height " + worldData[y][x]);
                     this.collisions ++;
                     f.setState(PlaneState.CRASHED);
                     f.isRunning = false;
                 }
-
 
 
 

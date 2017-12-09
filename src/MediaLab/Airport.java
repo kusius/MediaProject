@@ -9,6 +9,7 @@ public class Airport {
     private boolean Open;
     private String Name;
 
+
     public int getID() {
         return ID;
     }
