@@ -37,14 +37,11 @@ public class DrawPanel extends JPanel implements ActionListener {
     public DrawPanel(int [][] worldData, Program parent) //ctor
     {
         //PERIOD = (int) (1000 / (parent.SPEED_FACTOR * 60 )) ;
-
         setDoubleBuffered(true);
         this.worldData = worldData;
         this.parent = parent;
         loadImages();
         timer = new Timer(PERIOD, this);
-
-
     }
 
     public boolean isRunning() {return timer.isRunning();}
@@ -69,13 +66,11 @@ public class DrawPanel extends JPanel implements ActionListener {
         {
             draw(g);
 
-            parent.updateTime(PERIOD);
+            parent.updateTime();
             parent.crashTests();
             parent.updateDialogs();
         }
     }
-
-
 
     private void draw(Graphics g)
     {
@@ -83,7 +78,6 @@ public class DrawPanel extends JPanel implements ActionListener {
 
         drawWorld(g2d);
         drawAirports(g2d);
-
         drawFlights(g2d);
 
 
@@ -94,9 +88,17 @@ public class DrawPanel extends JPanel implements ActionListener {
 //        Flight f = parent.flights.get(0);
         for(Flight f : parent.flights)
         {
-            if (f != null) {
+            if (f != null  ) {
+                Pair position;
+                if (parent.getSimTime() >= f.getStartTime())
+                {
+                    f.isRunning = true;
+                    position = f.getPositionAndUpdate();
+                }
+                else
+                    position = f.getPosition();
                 //System.out.println("Current index : " + f.getCurrentPos());
-                Pair position = f.getPositionAndUpdate();
+
                 Image plane = smallPlanes[1];
                 Pair move = f.moves.get(f.getCurrentPos());
                 if (move.x == 1)

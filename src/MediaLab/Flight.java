@@ -40,16 +40,11 @@ public class Flight {
      */
     public Vector<Pair> moves;
     public float[] speed;
-    public int[] altitude;
     private int  currentPos = 0;
-    public boolean isRunning = true;
+    public boolean isRunning = false;
 
 
     private Pair Position; //in screen coordinates
-
-
-    /*Animation information*/
-    public int frameSpeed = 1 ; // in pixels (per refresh period)
 
     /*Getters and Setters*/
     public String getDepName() {
@@ -73,6 +68,8 @@ public class Flight {
     }
 
     public double getHeight() {return Height;}
+
+    public void setHeight(double height) {Height = height;}
 
     public int getID() {
         return ID;
@@ -111,7 +108,6 @@ public class Flight {
 
     public float getFuel() {
         return Math.round(Fuel * 100.0f) / 100.0f;
-//        return Fuel;
     }
 
     public int getCurrentPos() {return (currentPos < moves.size()) ? currentPos: currentPos - 1;}
@@ -132,7 +128,7 @@ public class Flight {
     public Flight (String[] data, double minutesPerFrame) throws ParseException
     {
         ID          = Integer.parseInt(data[0]);
-        StartTime   = Integer.parseInt(data[1]);
+        StartTime   = (int)  ( 1000 * Integer.parseInt(data[1]) * 60 *  1 / Program.TIME_FACTOR ); //real (app time) ms
         DepID       = Integer.parseInt(data[2]);
         ArrID       = Integer.parseInt(data[3]);
         Name        = data[4];
@@ -140,7 +136,7 @@ public class Flight {
         FlightSpeed = Integer.parseInt(data[6]);
         Altitude    = Integer.parseInt(data[7]);
         Fuel        = Float.parseFloat(data[8]);
-
+        System.out.println("Start time: " + getStartTime());
         plane = new Plane(PlaneType);
 
         moves = new Vector<Pair>();
@@ -258,7 +254,7 @@ public class Flight {
             else
                 this.speed[i] = this.FlightSpeed * 1.0f * speedFactor;
 
-            System.out.println("Speed: " + this.speed[i] + "ppf");
+//            System.out.println("Speed: " + this.speed[i] + "ppf");
             position = Pair.add(position, this.moves.get(i));
         }
     }

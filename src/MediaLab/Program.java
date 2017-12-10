@@ -24,12 +24,13 @@ public class Program extends JFrame implements ActionListener {
     public static final int WINDOW_HEIGHT = 550;
 
     public static final int BLOCK_SIZE = 16;
-    public static final float TIME_FACTOR = 60 / 0.5f;//0.55f;
+    public static final float TIME_FACTOR = 60 / 5;//0.55f;
     public static final float SPEED_FACTOR = TIME_FACTOR * (0.8f *  DrawPanel.PERIOD * 0.001f) / ( 3600); //speed in pixels per frame
 
     //Data
     private int[][] worldData = new int [30][60];
     private int currentSimTime ;//in ms
+
     private int collisions = 0;
     private int landings   = 0;
 
@@ -38,6 +39,8 @@ public class Program extends JFrame implements ActionListener {
     public Vector<Plane> planes     = null;
     public Vector<Flight> flights   = null;
 
+
+    public int getSimTime() {return currentSimTime;}
     //Each element of orientations describes the movement
     //that needs to be done in order to move from a start position
     //towards the direction of that orientation.
@@ -386,6 +389,8 @@ public class Program extends JFrame implements ActionListener {
                 try {
                     lineVector = line.split(",");
 
+
+
                     Flight f = new Flight(lineVector, minutesPerFrame);
                     if(calculateRoute(f))
                         flights.add(f);
@@ -458,6 +463,9 @@ public class Program extends JFrame implements ActionListener {
         f.setDepName(departure.getName());
         f.setArrName(arrival.getName());
 
+        //Set the plane's initial Altitude same as the airport altitude....
+        f.setHeight(worldData[departure.getPosition().y][departure.getPosition().x]);
+
 
         f.setPosition(new Pair(departure.getPosition().x * BLOCK_SIZE, departure.getPosition().y * BLOCK_SIZE));
 
@@ -513,9 +521,9 @@ public class Program extends JFrame implements ActionListener {
     }
 
 
-    public void updateTime(int period) //in ms
+    public void updateTime() //in ms
     {
-        currentSimTime += period;
+        currentSimTime += DrawPanel.PERIOD;
         int realTime = (int) (currentSimTime * TIME_FACTOR);
         String hm    = String.format("%02d:%02d", TimeUnit.MILLISECONDS.toHours(realTime),
                 TimeUnit.MILLISECONDS.toMinutes(realTime) % TimeUnit.HOURS.toMinutes(1));
@@ -533,13 +541,13 @@ public class Program extends JFrame implements ActionListener {
 
     }
 
+
     public void crashTests()
     {
         for(Flight f : this.flights)
         {
 
             if (f.isRunning) {
-                System.out.println("crashtst : "  + f.getState());
             /*Fuel Test*/
                 if (f.getFuel() <= 0) {
                     adderror("\nCRASH (No Fuel). Flight \"" + f.getName() + "\" lost. ");

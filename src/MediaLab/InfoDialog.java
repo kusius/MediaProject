@@ -94,8 +94,6 @@ public class InfoDialog extends JFrame {
     }
 
 
-
-
     // Custom List cell Renderer to Render our Airports, Flights and Planes
 
     private class CustomCellRenderer implements ListCellRenderer<Object>
